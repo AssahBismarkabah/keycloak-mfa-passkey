@@ -62,6 +62,7 @@
     }, [isAuthenticated, token]);
   
     const value = {
+      
       isAuthenticated,
       isLoading,
       error,
