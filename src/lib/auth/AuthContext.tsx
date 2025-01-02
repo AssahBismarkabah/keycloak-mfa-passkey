@@ -68,6 +68,7 @@
       error,
       token,
       login: async () => {
+        await keycloak.handleAuthentication();
         await login();
         if (keycloak.authenticated) {
           setIsAuthenticated(true);

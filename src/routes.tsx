@@ -21,7 +21,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/silent-check-sso.html" element={<KeycloakCallback />} />
+      <Route path="/keycloak-callback" element={<KeycloakCallback />} />
       <Route
         path="/dashboard"
         element={

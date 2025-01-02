@@ -9,6 +9,7 @@ export const KeycloakCallback = () => {
 
   useEffect(() => {
     const handleCallback = async () => {
+      await keycloak.handleAuthentication();
       if (keycloak.authenticated) {
         console.log('Keycloak authenticated in callback');
         await keycloak.updateToken(5);
@@ -20,7 +21,7 @@ export const KeycloakCallback = () => {
     };
 
     handleCallback();
-  }, [isAuthenticated, navigate]);
+  }, [navigate]);
 
   return null;
 };
