@@ -1,4 +1,3 @@
-// Keycloak initialization options
 export const keycloakConfig = {
   initOptions: {
     onLoad: 'check-sso',
@@ -7,9 +6,9 @@ export const keycloakConfig = {
     checkLoginIframe: false,
   },
   loginOptions: {
-    redirectUri: window.location.origin + '/dashboard',
+    redirectUri: window.location.origin + '/keycloak-callback',
   },
   logoutOptions: {
-    redirectUri: window.location.origin + '/login',
+    redirectUri: window.location.origin + '/keycloak-callback',
   },
 } as const;
