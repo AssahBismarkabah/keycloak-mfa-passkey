@@ -1,0 +1,8 @@
+{
+  "realm": "skyengpro",
+  "auth-server-url": "http://localhost:9090/",
+  "ssl-required": "external",
+  "resource": "frontend",
+  "public-client": true,
+  "confidential-port": 0
+}

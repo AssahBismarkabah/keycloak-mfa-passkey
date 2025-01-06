@@ -1,0 +1,4 @@
+$primary: rgb(199, 120, 43);
+$secondary: rgb(87, 88, 92);
+$light: lighten($primary, 20%);
+$dark: darken($secondary, 10%);

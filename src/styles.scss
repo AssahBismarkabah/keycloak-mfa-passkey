@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+.main-section {
+  padding-top: 4rem;
+}
+
+@media only screen and (min-width: 960px) {
+  .navbar {
+    --bs-navbar-padding-y: 1.5rem;
+  }
+
+  .main-section {
+    padding-top: 6rem;
+  }
+}

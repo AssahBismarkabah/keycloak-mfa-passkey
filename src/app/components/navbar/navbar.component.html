@@ -1,0 +1,29 @@
+<nav class="navbar fixed-top navbar-expand-sm px-5 navbar-dark bg-dark">
+  <div class="container-lg">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/images/keyclaok-image.png" width="140" height="30"
+        class="d-inline-block align-top" alt="passkey" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      (click)="isCollapsed = !isCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li>
+        @if (showLogoutButton) {
+          <li class="nav-item cursor">
+            <a class="nav-link" (click)="logoutUser()" >Logout</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

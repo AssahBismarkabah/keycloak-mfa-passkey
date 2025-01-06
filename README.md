@@ -1,81 +1,34 @@
-# Keycloak Mfa Passkey
+# keycloak-angular-passkey
 
-## Features
+## Pre requirement tools
+You also need to have `docker` install into your machine, because without it you can't run the docker-compose file
 
-- Passwordless authentication with Keycloak
-- Dashboard with account overview
+## Keycloak admin UI
+To start the keycloak admin console, you first need to run the docker compose file with following command on a terminal.
+> docker compose up -d
 
+After all containers inside the docker-compose file are successful installed and started, open a browser and enter following URL
+1. > http://localhost:9090/
+2. > The pair username/password is `admin/admin`
 
-## Getting Started
+## Keycloak configuration
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up environment variables:
-   Create a `.env` file with:
-   ```
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   VITE_KEYCLOAK_URL=your_keycloak_url
-   VITE_KEYCLOAK_REALM=your_realm
-   VITE_KEYCLOAK_CLIENT_ID=your_client_id
-   ```
+Wenn starting the docker compose, the keycloak_admin_ui container instance is created with the keycloak configuration file under the folder
+`keycloak/configuration/passkey-realm-and-client-export.json.
+Inside the configuration file, new *`realm`* **_passkey_** and the *`client`* **_passkey-client_** and one user for this client is created.
+1. Users and pwd for the realm "skyengpro"
+   1. | User                 | pwd         |
+      |----------------------|-------------|
+      | assah   | admin12    |
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## Important links
+1. [keycloak repo](https://github.com/keycloak/keycloak/tree/main)
+2. [How to configure theme](https://www.keycloak.org/docs/latest/server_development/index.html#configuring-a-theme)
 
-## Keycloak Configuration
+## Actuator
 
-1. Set up a Keycloak server
-2. Create a new realm
-3. Create a new client with the following settings:
-   - Client Protocol: openid-connect
-   - Access Type: public
-   - Valid Redirect URIs: http://localhost:5173/*
-   - Web Origins: http://localhost:5173
-4. Enable WebAuthn in Authentication settings
-5. Configure Passwordless authentication flow
+Get health status
+
+`curl http://localhost:8080/actuator/health`
 
 
-
-## Security Considerations
-
-- All API endpoints are protected
-- Row Level Security (RLS) is enabled on all tables
-- Sensitive data is encrypted
-- HTTPS is required in production
-- Regular security audits are recommended
-
-## Testing
-
-Run the test suite:
-```bash
-npm test
-```
-
-## Deployment
-
-1. Build the application:
-   ```bash
-   npm run build
-   ```
-
-2. Deploy the built assets to your hosting provider
-3. Configure environment variables on your hosting platform
-4. Update Keycloak client settings with production URLs
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-MIT
