@@ -9,13 +9,13 @@ To start the keycloak admin console, you first need to run the docker compose fi
 
 After all containers inside the docker-compose file are successful installed and started, open a browser and enter following URL
 1. > http://localhost:9090/
-2. > The pair username/password is `admin/admin`
+2. > The pair username/password is `admin/keycloak`
 
 ## Keycloak configuration
 
 Wenn starting the docker compose, the keycloak_admin_ui container instance is created with the keycloak configuration file under the folder
-`keycloak/configuration/passkey-realm-and-client-export.json.
-Inside the configuration file, new *`realm`* **_passkey_** and the *`client`* **_passkey-client_** and one user for this client is created.
+`keycloak/configuration/passkey-realm-and-client-export.json`.
+Inside the configuration file, new  *`realm`*  **_passkey_**  and the *`client`* **_passkey-client_**  and one user for this client is created.
 1. Users and pwd for the realm "passkey"
    1. | User                 | pwd         |
       |----------------------|-------------|

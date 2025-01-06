@@ -24,11 +24,11 @@ services:
       - 1025:1025
 
   keycloak_admin_ui:
-    image: quay.io/keycloak/keycloak:24.0.2
+    image: quay.io/keycloak/keycloak:26.0.7
     container_name: keycloak_admin_ui
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: keycloak
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: keycloak
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://keycloakdb:5432/keycloak
       KC_DB_USERNAME: keycloak
@@ -41,7 +41,7 @@ services:
       - --import-realm
     volumes:
       - ./keycloak/configuration/passkey-realm-and-client-export.json:/opt/keycloak/data/import/passkey-realm-and-client-export.json
-#      - ./keycloak/themes/skyengpro/:/opt/keycloak/themes/skyengpro/
+#      - ./keycloak/themes/passkey/:/opt/keycloak/themes/passkey/
 #      - ./auth/import:/opt/keycloak/data/import
     depends_on:
       - keycloakdb
