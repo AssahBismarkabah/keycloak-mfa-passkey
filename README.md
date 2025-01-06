@@ -16,7 +16,7 @@ After all containers inside the docker-compose file are successful installed and
 Wenn starting the docker compose, the keycloak_admin_ui container instance is created with the keycloak configuration file under the folder
 `keycloak/configuration/passkey-realm-and-client-export.json.
 Inside the configuration file, new *`realm`* **_passkey_** and the *`client`* **_passkey-client_** and one user for this client is created.
-1. Users and pwd for the realm "skyengpro"
+1. Users and pwd for the realm "passkey"
    1. | User                 | pwd         |
       |----------------------|-------------|
       | assah   | admin12    |
