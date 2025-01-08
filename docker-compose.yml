@@ -36,12 +36,35 @@ services:
       KC_LOG_LEVEL: info
       KC_METRICS_ENABLED: 'true'
       KC_HEALTH_ENABLED: 'true'
+      KC_THEMES: /opt/keycloak/themes
+      KC_SPI_THEME_DEFAULT: passkey
+      KC_SPI_THEME_WELCOME_THEME: passkey
+      KC_SPI_THEME_ADMIN_THEME: passkey
+      KC_SPI_THEME_EMAIL_THEME: passkey
+      KC_HTTP_ENABLED: 'true'
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HTTP_RELATIVE_PATH: '/'
+      KC_HOSTNAME_STRICT_HTTPS: 'false'
+      KC_PROXY: 'edge'
+      KC_SPI_THEME_STATIC_MAX_AGE: -1
+      KC_SPI_THEME_CACHE_THEMES: false
+      KC_SPI_THEME_CACHE_TEMPLATES: false
+      KEYCLOAK_FRONTEND_URL: http://localhost:9090
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 9090
+      KC_PROXY_ADDRESS_FORWARDING: 'true'
+      KC_CORS: 'true'
+      KC_CORS_ALLOWED_ORIGINS: http://localhost:4200
+      KC_CORS_ALLOWED_METHODS: GET,POST,PUT,DELETE,OPTIONS
+      KC_CORS_ALLOWED_HEADERS: Authorization,Content-Type,X-Requested-With,Accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      KC_CORS_EXPOSED_HEADERS: WWW-Authenticate
+      KC_CORS_ALLOW_CREDENTIALS: 'true'
     command: 
       - "start-dev"
       - --import-realm
     volumes:
       - ./keycloak/configuration/passkey-realm-and-client-export.json:/opt/keycloak/data/import/passkey-realm-and-client-export.json
-#      - ./keycloak/themes/passkey/:/opt/keycloak/themes/passkey/
+      - ./keycloak/themes/passkey/:/opt/keycloak/themes/passkey/
 #      - ./auth/import:/opt/keycloak/data/import
     depends_on:
       - keycloakdb

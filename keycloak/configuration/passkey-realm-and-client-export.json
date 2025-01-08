@@ -1,5 +1,9 @@
 {
   "realm": "passkey",
+  "loginTheme": "passkey",
+  "accountTheme": "passkey",
+  "adminTheme": "passkey",
+  "emailTheme": "passkey",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
