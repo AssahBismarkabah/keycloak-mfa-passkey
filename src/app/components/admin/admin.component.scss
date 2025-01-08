@@ -151,3 +151,37 @@
   color: #636e72;
 }
 
+.auth-section {
+  padding: 20px;
+
+  .token-display {
+    margin-top: 20px;
+    
+    .token-container {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+      
+      .token-section {
+        margin-bottom: 20px;
+
+        h4 {
+          color: #6c5ce7;
+          margin-bottom: 10px;
+        }
+
+        pre {
+          margin: 0;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          background: white;
+          padding: 15px;
+          border-radius: 4px;
+          border: 1px solid #e1e1e1;
+        }
+      }
+    }
+  }
+}
+

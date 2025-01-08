@@ -5,63 +5,96 @@
       <h3>Admin Dashboard</h3>
     </div>
     <nav class="sidebar-nav">
-      <a href="#" class="active"><i class="fas fa-home"></i> Overview</a>
-      <a href="#"><i class="fas fa-users"></i> Users</a>
-      <a href="#"><i class="fas fa-key"></i> Authentication</a>
-      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a [class.active]="currentSection === 'overview'" (click)="setCurrentSection('overview')">
+        <i class="fas fa-home"></i> Overview
+      </a>
+      <a [class.active]="currentSection === 'users'" (click)="setCurrentSection('users')">
+        <i class="fas fa-users"></i> Users
+      </a>
+      <a [class.active]="currentSection === 'authentication'" (click)="setCurrentSection('authentication')">
+        <i class="fas fa-key"></i> Authentication
+      </a>
+      <a [class.active]="currentSection === 'settings'" (click)="setCurrentSection('settings')">
+        <i class="fas fa-cog"></i> Settings
+      </a>
     </nav>
   </div>
   <div class="main-content">
-    <header class="dashboard-header">
-      <h2>Dashboard Overview</h2>
-      <div class="user-profile">
-        <span>Welcome, Admin</span>
-        <img src="assets/images/user.png" alt="Profile" class="avatar">
-      </div>
-    </header>
-    <div class="dashboard-grid">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-users"></i></div>
-        <div class="stat-details">
-          <h4>Total Users</h4>
-          <p class="stat-number">1,234</p>
-          <p class="stat-change positive">+12% this week</p>
+    <!-- Overview Section -->
+    <div *ngIf="currentSection === 'overview'">
+      <header class="dashboard-header">
+        <h2>Dashboard Overview</h2>
+        <div class="user-profile">
+          <span>Welcome, Admin</span>
+          <img src="assets/images/user.png" alt="Profile" class="avatar">
+        </div>
+      </header>
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-details">
+            <h4>Total Users</h4>
+            <p class="stat-number">1,234</p>
+            <p class="stat-change positive">+12% this week</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="stat-details">
+            <h4>Security Score</h4>
+            <p class="stat-number">92%</p>
+            <p class="stat-change positive">+5% this week</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-key"></i></div>
+          <div class="stat-details">
+            <h4>Active Sessions</h4>
+            <p class="stat-number">156</p>
+            <p class="stat-change neutral">-2% this week</p>
+          </div>
         </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="stat-details">
-          <h4>Security Score</h4>
-          <p class="stat-number">92%</p>
-          <p class="stat-change positive">+5% this week</p>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-key"></i></div>
-        <div class="stat-details">
-          <h4>Active Sessions</h4>
-          <p class="stat-number">156</p>
-          <p class="stat-change neutral">-2% this week</p>
+      <div class="recent-activity">
+        <h3>Recent Activity</h3>
+        <div class="activity-list">
+          <div class="activity-item">
+            <i class="fas fa-user-plus"></i>
+            <div class="activity-details">
+              <p>New user registered</p>
+              <small>2 minutes ago</small>
+            </div>
+          </div>
+          <div class="activity-item">
+            <i class="fas fa-key"></i>
+            <div class="activity-details">
+              <p>Password policy updated</p>
+              <small>1 hour ago</small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="recent-activity">
-      <h3>Recent Activity</h3>
-      <div class="activity-list">
-        <div class="activity-item">
-          <i class="fas fa-user-plus"></i>
-          <div class="activity-details">
-            <p>New user registered</p>
-            <small>2 minutes ago</small>
+
+    <!-- Authentication Section -->
+    <div *ngIf="currentSection === 'authentication'" class="auth-section">
+      <h2>Authentication Details</h2>
+      <div class="token-display">
+        <h3>Access Token</h3>
+        <div class="token-container" *ngIf="decodedToken">
+          <div class="token-section">
+            <h4>HEADER:</h4>
+            <pre>{{ decodedToken.header | json }}</pre>
+          </div>
+          <div class="token-section">
+            <h4>PAYLOAD:</h4>
+            <pre>{{ decodedToken.payload | json }}</pre>
           </div>
         </div>
-        <div class="activity-item">
-          <i class="fas fa-key"></i>
-          <div class="activity-details">
-            <p>Password policy updated</p>
-            <small>1 hour ago</small>
-          </div>
+        <div class="token-container" *ngIf="!decodedToken">
+          <pre>No token available or invalid token format</pre>
         </div>
       </div>
     </div>
   </div>
+</div>

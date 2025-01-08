@@ -27,5 +27,8 @@ export class KeycloakFactory {
       redirectUri: `${REDIRECT_URI}${path ?? ''}`
     });
   }
+  public getAccessToken(): Promise<string> {
+    return this.keycloakService.getToken();
+  }
 
 }
